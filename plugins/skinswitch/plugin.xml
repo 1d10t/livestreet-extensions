@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>
+		<lang name="default">Skin Switch</lang>
+	</name>
+	<author>
+		<lang name="default">Sergey S Yaglov</lang>
+	</author>
+	<homepage>http://yaglov.ru/</homepage>
+	<version>0.0.3</version>
+	<requires>
+		<livestreet>0.4.2</livestreet>
+		<plugins>
+		</plugins>
+	</requires>
+	<description>
+		<lang name="russian">Переключалка скинов для LiveStreet</lang>
+		<lang name="default">Skin switcher for LiveStreet</lang>
+	</description>
+</plugin>

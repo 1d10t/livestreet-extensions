@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>
+		<lang name="default">Change Date</lang>
+	</name>
+	<author>
+		<lang name="default">Sergey S Yaglov</lang>
+	</author>
+	<homepage>http://livestreet.ru/profile/1d10t/</homepage>
+	<version>0.0.2</version>
+	<requires>
+		<livestreet>0.4.2</livestreet>
+		<plugins></plugins>
+	</requires>
+	<description>
+		<lang name="russian">Позволяет изменять дату создания топика.</lang>
+		<lang name="default">Allows you to change the date of topic.</lang>
+	</description>
+</plugin>

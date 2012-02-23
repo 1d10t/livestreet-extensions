@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>
+		<lang name="default">AutoTown</lang>
+	</name>
+	<author>
+		<lang name="default">Sergey S Yaglov</lang>
+	</author>
+	<homepage>http://yaglov.ru/</homepage>
+	<version>0.0.1</version>
+	<requires>
+		<livestreet>0.4.2</livestreet>
+		<plugins></plugins>
+	</requires>
+	<description>
+		<lang name="default">Automatically exposes the Russian city in a profile of the added user on the basis of the information from ipgeobase.ru.</lang>
+		<lang name="russian">Автоматически выставляет российский город в профиле добавляемого пользователя на основании информации из ipgeobase.ru.</lang>
+	</description>
+	<delegate>
+		<module></module>
+		<action></action>
+		<template></template>
+		<entity></entity>
+	</delegate>
+</plugin>
