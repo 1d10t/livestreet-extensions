@@ -25,14 +25,14 @@ class PluginAutotown_HookAddTown extends Hook {
 		 * Спрашиваем у ipgeobase.ru откуда IP
 		 */
 		$oResponse = $this->PluginAutotown_Autotown_Get($sIp);
-		if(!isset($oResponse->city))
+		if(!isset($oResponse->country))
 			return;
 		/**
 		 * Выставляем полученные значения юзеру в профиль
 		 */
-		$oUser->setProfileCountry('Россия');
-		$oUser->setProfileRegion((string)$oResponse->region);
-		$oUser->setProfileCity((string)$oResponse->city);
+		$oUser->setProfileCountry($this->PluginAutotown_Autotown_CountyName($oResponse->country));
+		$oUser->setProfileRegion((string)@$oResponse->region);
+		$oUser->setProfileCity((string)@$oResponse->city);
 		/**
 		 * Добавляем релейшны страны 
 		 */

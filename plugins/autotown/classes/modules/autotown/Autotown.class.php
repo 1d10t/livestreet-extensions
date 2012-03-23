@@ -11,23 +11,21 @@ class PluginAutotown_ModuleAutotown extends Module {
 	public function Init() {
 		$this->c = Config::Get('plugin.autotown');
 	}
-
+	
+	public function CountyName($sCountryCode){
+		return isset($this->c['country_names'][$sCountryCode])
+			? $this->c['country_names'][$sCountryCode]
+			: $sCountryCode
+		;
+	}
 	
 	protected function FetchXML($sIp){
 		
-		$sPostData = http_build_query(array(
-			'address' => '<ipquery><fields><region/><city/><lat/><lng/>'
-				."<ip-list><ip>$sIp</ip></ip-list></fields></ipquery>"
-		));
-		
 		$rHandler = curl_init();
 		curl_setopt($rHandler, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($rHandler, CURLOPT_POST, true);
 		curl_setopt($rHandler, CURLOPT_HEADER, false);
-		curl_setopt($rHandler, CURLOPT_URL, 'http://194.85.91.253:8090/geo/geo.html');
+		curl_setopt($rHandler, CURLOPT_URL, 'http://ipgeobase.ru:7020/geo?ip='.$sIp);
 		curl_setopt($rHandler, CURLOPT_TIMEOUT, 2);
-		curl_setopt($rHandler, CURLOPT_HTTPHEADER, array('Content-Length: '.strlen($sPostData)));
-		curl_setopt($rHandler, CURLOPT_POSTFIELDS, $sPostData);
 		
 		$sResponse = curl_exec($rHandler);
 		
@@ -42,7 +40,7 @@ class PluginAutotown_ModuleAutotown extends Module {
 	
 	public function Get($sIp) {
 		
-		$cache_key = "autotown_xml_$sIp";
+		$cache_key = "autotown-0.1.0_xml_$sIp";
 		
 		if (!($sXML = $this->Cache_Get($cache_key))) {
 			$sXML = $this->FetchXML($sIp);
@@ -55,7 +53,7 @@ class PluginAutotown_ModuleAutotown extends Module {
 		
 		$oXML = @simplexml_load_string($sXML);
 		
-		if(!isset($oXML->ip->city))
+		if(!isset($oXML->ip->country))
 			return;
 		
 		return $oXML->ip;
