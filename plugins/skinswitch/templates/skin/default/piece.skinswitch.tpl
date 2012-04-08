@@ -149,8 +149,10 @@
 	// onload
 	if(typeof(jQuery) != 'undefined'){
 		jQuery(ready);
-	}else{
+	}else if(window.addEvent){
 		window.addEvent('domready', ready);
+	}else{
+		document.onload = ready;
 	}
 	
 })();

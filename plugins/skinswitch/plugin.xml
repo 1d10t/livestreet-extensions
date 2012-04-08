@@ -7,7 +7,7 @@
 		<lang name="default">Sergey S Yaglov</lang>
 	</author>
 	<homepage>http://yaglov.ru/</homepage>
-	<version>0.0.3</version>
+	<version>0.0.4</version>
 	<requires>
 		<livestreet>0.4.2</livestreet>
 		<plugins>
