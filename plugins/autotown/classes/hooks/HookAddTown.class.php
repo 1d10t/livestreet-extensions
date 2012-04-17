@@ -30,7 +30,7 @@ class PluginAutotown_HookAddTown extends Hook {
 		/**
 		 * Выставляем полученные значения юзеру в профиль
 		 */
-		$oUser->setProfileCountry($this->PluginAutotown_Autotown_CountyName($oResponse->country));
+		$oUser->setProfileCountry($this->PluginAutotown_Autotown_CountyName((string)@$oResponse->country));
 		$oUser->setProfileRegion((string)@$oResponse->region);
 		$oUser->setProfileCity((string)@$oResponse->city);
 		/**
